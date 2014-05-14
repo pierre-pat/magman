@@ -34,7 +34,11 @@
 
     <div class="form-group">
       <div class="col-md-4">
-        <%= f.submit %>
+        <% if @user.new_record? %>
+          <%= f.submit "Create user" %>
+        <% else %>
+          <%= f.submit "Update user" %>
+        <% end %>
       </div>
     </div>
   </fieldset>

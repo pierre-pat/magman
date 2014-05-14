@@ -20,7 +20,11 @@
 
     <div class="form-group">
       <div class="col-md-4">
-        <%= f.submit %>
+        <% if @user.new_record? %>
+          <%= f.submit "Create magician" %>
+        <% else %>
+          <%= f.submit "Update magician" %>
+        <% end %>
       </div>
     </div>
   </fieldset>

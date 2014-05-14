@@ -13,7 +13,11 @@
 
     <div class="form-group">
       <div class="col-md-4">
-        <%= f.submit %>
+        <% if @user.new_record? %>
+          <%= f.submit "Create Todo" %>
+        <% else %>
+          <%= f.submit "Update Todo" %>
+        <% end %>
       </div>
     </div>
   </fieldset>
