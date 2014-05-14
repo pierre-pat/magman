@@ -1,0 +1,11 @@
+<div class="jumbotron">
+  <h1>Welcome to Magman!</h1>
+  <p>This is a simple tool to manage your magic, wherever you are.</p>
+
+  <% if @user %>
+    <p><%= link_to "Enter", @user, class: "btn btn-primary btn-lg" %></p>
+  <% else %>
+    <p><%= link_to "Sign up!", signup_path, class: "btn btn-primary btn-lg" %></p>
+  <% end %>
+  <!-- <p><a class="btn btn-primary btn-lg">Learn more</a></p> -->
+</div>

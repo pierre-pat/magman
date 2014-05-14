@@ -1,0 +1,42 @@
+<%= render 'layouts/errors', object: @user %>
+
+<div class="well bs-component col-md-offset-3 col-md-6">
+  <legend>Enter your information:</legend>
+  <%= form_for @user, class: 'form-vertical' do |f| %>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :name, class: "col-md-4 control-label" %>
+      <div class="col-md-9">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email , class: "col-md-4 control-label"%>
+      <div class="col-md-9">
+        <%= f.text_field :email %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password, class: "col-md-4 control-label" %>
+      <div class="col-md-9">
+        <%= f.password_field :password %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password_confirmation, "Confirm Password", class: "col-md-4 control-label" %>
+      <div class="col-md-9">
+        <%= f.password_field :password_confirmation %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-4">
+        <%= f.submit %>
+      </div>
+    </div>
+  </fieldset>
+  <% end %>
+</div>

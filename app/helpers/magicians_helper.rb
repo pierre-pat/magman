@@ -1,0 +1,2 @@
+module MagiciansHelper
+end

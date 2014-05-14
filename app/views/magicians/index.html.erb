@@ -1,0 +1,9 @@
+<h1>magicians</h1>
+
+<ul>
+<% @magicians.each do |m| %>
+  <li><%= m.firstname %> <%= m.lastname %> | <%= link_to 'Edit', edit_user_magician_path(@user, m) %></li>
+<% end %>
+</ul>
+
+<%= link_to 'Add a new magician', new_user_magician_path(@user) %>

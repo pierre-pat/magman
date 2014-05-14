@@ -1,0 +1,7 @@
+<h1>ToDos</h1>
+
+<ul>
+<% @todos.each do |todo| %>
+  <li><%= todo.description %> | <%= link_to 'Edit', edit_user_todo_path(@user, todo) %></li>
+<% end %>
+</ul>
