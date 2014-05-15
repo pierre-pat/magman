@@ -1,16 +1,15 @@
 class NotesController < ApplicationController
+  before_action :require_signin
+
   def index
-    @user = User.find(params[:user_id])
     @notes = @user.notes
   end
 
   def new
-    @user = User.find(params[:user_id])
     @note = Note.new
   end
 
   def create
-    @user = User.find(params[:user_id])
     @note = @user.notes.new(note_params)
     if @note.save
       redirect_to user_notes_path(@note), notice: "Note successfully created"
@@ -20,12 +19,10 @@ class NotesController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:user_id])
     @note = Note.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:user_id])
     @note = Note.find(params[:id])
     if @note.update(note_params)
       redirect_to user_notes_path(@user), notice: "Note has been updated successfully"

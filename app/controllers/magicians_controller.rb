@@ -1,17 +1,15 @@
 class MagiciansController < ApplicationController
+  before_action :require_signin
 
   def index
-    @user = User.find(params[:user_id])
     @magicians = @user.magicians
   end
 
   def new
-    @user = User.find(params[:user_id])
     @magician = Magician.new
   end
 
   def create
-    @user = User.find(params[:user_id])
     @magician = @user.magicians.new(magician_params)
     if @magician.save
       redirect_to @user, notice: "Magician added."
@@ -24,12 +22,10 @@ class MagiciansController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:user_id])
     @magician = Magician.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:user_id])
     @magician = Magician.find(params[:id])
     if @magician.update(magician_params)
       redirect_to user_magicians_path(@user), notice: "Magician updated"

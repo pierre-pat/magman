@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_current_user, only: :show
 
   def new
     @user = User.new
@@ -19,7 +20,15 @@ class UsersController < ApplicationController
     logger.info @user
   end
 
+  private
   def user_params
     params.required(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def require_current_user
+    user = User.find(params[:id])
+    unless current_user?(user)
+      redirect_to root_path
+    end
   end
 end
